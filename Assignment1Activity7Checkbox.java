@@ -31,10 +31,18 @@ public class Assignment1Activity7Checkbox {
 			if(driver.findElement(By.xpath("(//input)["+i+"]")).isSelected())
 				driver.findElement(By.xpath("(//input)["+i+"]")).click();
 		}
-		for(int i=9;i<=13;i++) {
+		List<WebElement> checkboxes = driver.findElements(By.xpath("//label[text()='Select all below checkboxes ']/following::input"));
+		for(int j=0;j<checkboxes.size();j++) {
+			Thread.sleep(1000);
+			checkboxes.get(j).click();
+		}
+		
+		/* Another Method
+		 for(int i=9;i<=13;i++) {
 			if(! driver.findElement(By.xpath("(//input)["+i+"]")).isSelected())
 				driver.findElement(By.xpath("(//input)["+i+"]")).click();
-		}
+		}*/
+		driver.close();		
 	}
 
 }
